@@ -8,14 +8,11 @@ package com.example;
         }
 
         public void addDistance(double km){
-            if (km < 0) {
-                throw new IllegalArugmentException("Distance can not be negative");
-            }
             this.totalDistance += km;
         }
 
         public double getTotalDistance(){
-            return totalDistance
+            return totalDistance;
         }
 
     }
