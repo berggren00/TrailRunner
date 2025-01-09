@@ -1,5 +1,5 @@
 package com.example;
 
-public class TrailRunner {
+public class TestTrailRunner {
     
 }
