@@ -1,3 +1,3 @@
-public class TrailRunner {
+public class TestTrailRunner {
     
 }
