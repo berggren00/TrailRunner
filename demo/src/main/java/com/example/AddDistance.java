@@ -1,5 +1,4 @@
 package com.example;
-/*
     public class AddDistance {
         private double totalDistance;
 
@@ -16,4 +15,3 @@ package com.example;
         }
 
     }
-        */
