@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b23921ba-78c5-4114-a1b7-4cd09f4e96bf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/AddDistance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/test/java/TestAddDistance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/TrailRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/TrailRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/test/java/TestTrailRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/test/java/TestTrailRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +34,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2rLoqbDGnlSzvqAlfeUtvkYsU4B" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -75,6 +81,7 @@
       <workItem from="1736415293574" duration="24000" />
       <workItem from="1736415676397" duration="1242000" />
       <workItem from="1736416968770" duration="137000" />
+      <workItem from="1736417362263" duration="348000" />
     </task>
     <servers />
   </component>
