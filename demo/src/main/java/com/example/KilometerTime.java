@@ -3,10 +3,7 @@ package com.example;
 
 public class KilometerTime{
 
-    RunTime runtime = new RunTime(0, 0, 0);
-    AddDistance addDistance = new AddDistance();
-
-    public static double calculateKilometerTime(Runtime runTime, AddDistance addDistance) {
+    public static double calculateKilometerTime(RunTime runTime, AddDistance addDistance) {
         if (runTime == null || addDistance == null) {
             return -1;
         }
