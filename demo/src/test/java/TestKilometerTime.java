@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.example.AddDistance;
@@ -6,55 +7,57 @@ import com.example.KilometerTime;
 import com.example.RunTime;
 
 public class TestKilometerTime {
+    private AddDistance distance;
+    private RunTime runTime;
+    private KilometerTime kilometerTime;
+
+    @BeforeEach
+    void setup(){
+        distance = new AddDistance();
+        runTime = new RunTime(1, 30, 0);
+        kilometerTime = new KilometerTime();
+    }   
 
     @Test
-    public void testValidKilometerTime(){
-        RunTime runTime = new RunTime(1, 30, 0);
-        AddDistance addDistance = new AddDistance();
+    void testValidKilometerTime(){
+        distance.addDistance(15);
 
-        addDistance.addDistance(15);
-
-        double result = KilometerTime.calculateKilometerTime(runTime, addDistance);
+        double result = KilometerTime.calculateKilometerTime(runTime, distance);
         assertEquals(6.0, result, 0.01);
 
     }
 
     @Test
-    public void testZeroDistance(){
+    void testZeroDistance(){
         RunTime runTime = new RunTime(1, 0, 0);
-        AddDistance addDistance = new AddDistance();
-
-        double result = KilometerTime.calculateKilometerTime(runTime, addDistance);
+        double result = KilometerTime.calculateKilometerTime(runTime, distance);
         assertEquals(-1, result);
     }
 
     @Test
-    public void testZeroTime(){
+    void testZeroTime(){
         RunTime runTime = new RunTime(0, 0, 0);
-        AddDistance addDistance = new AddDistance();
-        addDistance.addDistance(10);
+        distance.addDistance(10);
 
-        double result = KilometerTime.calculateKilometerTime(runTime, addDistance);
+        double result = KilometerTime.calculateKilometerTime(runTime, distance);
         assertEquals(0, result);
     }
 
     @Test
-    public void testNegativeDistance() {
+    void testNegativeDistance() {
         RunTime runTime = new RunTime(1, 0, 0);
-        AddDistance addDistance = new AddDistance();
-        addDistance.addDistance(-5);
+        distance.addDistance(-5);
 
-        double result = KilometerTime.calculateKilometerTime(runTime, addDistance);
+        double result = KilometerTime.calculateKilometerTime(runTime, distance);
         assertEquals(-1, result);
 
     }
 
     @Test
-    public void testNegativeTime() {
+    void testNegativeTime() {
     RunTime runTime = new RunTime(-1, 0, 0);
-    AddDistance addDistance = new AddDistance();
 
-    double result = KilometerTime.calculateKilometerTime(runTime, addDistance);
+    double result = KilometerTime.calculateKilometerTime(runTime, distance);
     assertEquals(-1, result);
     }
 

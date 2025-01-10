@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.example.AddDistance;
@@ -9,14 +10,22 @@ import com.example.KilometerTime;
 import com.example.RunTime;
 
 public class TestFitnessScore {
-    @Test
-    public void testValidFitnessScore() {
-        AddDistance distance = new AddDistance();
-        distance.addDistance(15);
 
-        RunTime runTime = new RunTime(1, 30, 0);
-        
-        AverageSpeed averageSpeedCalc = new AverageSpeed(distance, runTime);
+    private AddDistance distance;
+    private RunTime runTime;
+    private AverageSpeed averageSpeedCalc;
+    
+    @BeforeEach
+    void setup(){
+        distance = new AddDistance();
+        runTime = new RunTime(1, 30, 0);
+        averageSpeedCalc = new AverageSpeed(distance, runTime);
+
+    }
+
+    @Test
+    void testValidFitnessScore() {
+        distance.addDistance(15);
 
         double currentScore = 50.0;
         int daysSinceLastRun = 3;
@@ -30,21 +39,19 @@ public class TestFitnessScore {
     }
 
     @Test
-    public void testInvalidKilometerTime(){
-        AddDistance addDistance = new AddDistance();
-        RunTime runTime = new RunTime(0, 0, 0);
-        AverageSpeed averageSpeedCalc = new AverageSpeed(addDistance, runTime);
+    void testInvalidKilometerTime(){
+        runTime = new RunTime(0, 0, 0);
 
         double currentScore = 40.0;
         int daysSinceLastRun = 5;
 
         assertThrows(IllegalArgumentException.class, () -> {
-            FitnessScore.calculateFitnessScore(currentScore, addDistance, averageSpeedCalc, runTime, daysSinceLastRun);
+            FitnessScore.calculateFitnessScore(currentScore, distance, averageSpeedCalc, runTime, daysSinceLastRun);
         });
     }
 
     @Test
-    public void testNullInputs() {
+    void testNullInputs() {
         assertThrows(IllegalArgumentException.class, () -> {
             FitnessScore.calculateFitnessScore(30, null, null, null, 2);
         });
