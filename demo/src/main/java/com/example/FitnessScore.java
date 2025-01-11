@@ -2,7 +2,7 @@ package com.example;
 
 public class FitnessScore {
     
-    public double calculateFitnessScore(double currentScore, AddDistance addDistance, AverageSpeed averageSpeedCalc, RunTime runTime, int daysSinceLastRun){
+    public static double calculateFitnessScore(double currentScore, AddDistance addDistance, AverageSpeed averageSpeedCalc, RunTime runTime, int daysSinceLastRun){
         if (addDistance == null || averageSpeedCalc == null || runTime == null) {
             throw new IllegalArgumentException("Input cannot be null");
         }
