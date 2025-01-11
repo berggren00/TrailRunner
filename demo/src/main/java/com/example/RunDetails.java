@@ -23,10 +23,11 @@ public class RunDetails {
     public static void interigateRunDetails(String id, AddDistance distance, RunTime runTime, AverageSpeed averageSpeedCalc, KilometerTime kilometerTime, FitnessScore fitnessScore, TodaysDate todaysDate) {
         StringBuilder detailsBuilder = new StringBuilder();
 
+        detailsBuilder.append("Date: ").append(todaysDate.toString()).append("\n");
         detailsBuilder.append("Distance: ").append(distance.getTotalDistance()).append(" km\n");
         detailsBuilder.append("Time: ").append(runTime.getHours()).append("h ").append(runTime.getMinutes()).append("m ").append(runTime.getSeconds()).append("s\n");
         try {
-            detailsBuilder.append("Average Speed: ").append(averageSpeedCalc.calculateAverageSpeed()).append("km/h\n");
+            detailsBuilder.append("Average Speed: ").append(averageSpeedCalc.calculateAverageSpeed()).append(" km/h\n");
         } catch (IllegalArgumentException e) {
             detailsBuilder.append("Average Speed: Error calculating\n");
         }
@@ -42,6 +43,7 @@ public class RunDetails {
         } catch (IllegalArgumentException e) {
             detailsBuilder.append("Fitness Score: Error calculating");
         }
+
 
         addRundetails(id, detailsBuilder.toString());
     }
