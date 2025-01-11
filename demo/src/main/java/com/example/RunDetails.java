@@ -32,13 +32,13 @@ public class RunDetails {
         }
 
         try {
-            detailsBuilder.append("Kilometer time: ").append(kilometerTime.calculateKilometerTime(runTime, distance)).append("m/kmn");
+            detailsBuilder.append("Kilometer time: ").append(KilometerTime.calculateKilometerTime(runTime, distance)).append("m/kmn");
         } catch (IllegalArgumentException e) {
             detailsBuilder.append("Kilometer Time: Error calculating\n");
         }
 
         try {
-            detailsBuilder.append("Fitness Score: ").append(fitnessScore.calculateFitnessScore(0, distance, averageSpeedCalc, runTime, 0)).append("\n");
+            detailsBuilder.append("Fitness Score: ").append(FitnessScore.calculateFitnessScore(0, distance, averageSpeedCalc, runTime, 0)).append("\n");
         } catch (IllegalArgumentException e) {
             detailsBuilder.append("Fitness Score: Error calculating");
         }
