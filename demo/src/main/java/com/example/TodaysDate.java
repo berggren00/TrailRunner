@@ -21,7 +21,7 @@ public class TodaysDate {
         this.date=date;
     }
     
-    public String DatetoString () {
-            return date.toString();
-        }
+    public String toString () {
+        return date.toString();
+    }
 }
