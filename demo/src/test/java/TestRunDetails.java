@@ -55,7 +55,7 @@ public class TestRunDetails {
         distance.addDistance(10);
         runTime = new RunTime(0, 45, 0);
         
-        RunDetails.interigateRunDetails(id, distance, runTime, averageSpeedCalc);
+        RunDetails.interigateRunDetails(id, distance, runTime, averageSpeedCalc, null, null, null);
 
         String details = RunDetails.getRunDetails(id);        
         assertTrue(details.contains("Distance: 10.0 km"), "Details should contain correct distance");

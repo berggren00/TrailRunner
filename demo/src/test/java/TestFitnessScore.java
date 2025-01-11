@@ -14,12 +14,14 @@ public class TestFitnessScore {
     private AddDistance distance;
     private RunTime runTime;
     private AverageSpeed averageSpeedCalc;
+    private FitnessScore fitnessScore;
     
     @BeforeEach
     void setup(){
         distance = new AddDistance();
         runTime = new RunTime(1, 30, 0);
         averageSpeedCalc = new AverageSpeed(distance, runTime);
+        fitnessScore = new FitnessScore();
 
     }
 
@@ -30,7 +32,7 @@ public class TestFitnessScore {
         double currentScore = 50.0;
         int daysSinceLastRun = 3;
 
-        double result = FitnessScore.calculateFitnessScore(currentScore, distance, averageSpeedCalc, runTime, daysSinceLastRun);
+        double result = fitnessScore.calculateFitnessScore(currentScore, distance, averageSpeedCalc, runTime, daysSinceLastRun);
 
         double expectedKilometerTime = KilometerTime.calculateKilometerTime(runTime, distance);
         double expected = 50 + (15 + averageSpeedCalc.calculateAverageSpeed() / expectedKilometerTime) - 3 / 2.0;
@@ -46,14 +48,14 @@ public class TestFitnessScore {
         int daysSinceLastRun = 5;
 
         assertThrows(IllegalArgumentException.class, () -> {
-            FitnessScore.calculateFitnessScore(currentScore, distance, averageSpeedCalc, runTime, daysSinceLastRun);
+            fitnessScore.calculateFitnessScore(currentScore, distance, averageSpeedCalc, runTime, daysSinceLastRun);
         });
     }
 
     @Test
     void testNullInputs() {
         assertThrows(IllegalArgumentException.class, () -> {
-            FitnessScore.calculateFitnessScore(30, null, null, null, 2);
+            fitnessScore.calculateFitnessScore(30, null, null, null, 2);
         });
     }
 }

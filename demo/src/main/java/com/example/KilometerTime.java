@@ -3,8 +3,8 @@ package com.example;
 
 public class KilometerTime{
 
-    public static double calculateKilometerTime(RunTime runTime, AddDistance addDistance) {
-        if (runTime == null || addDistance == null) {
+    public static double calculateKilometerTime(RunTime runTime, AddDistance distance) {
+        if (runTime == null || distance == null) {
             return -1;
         }
         int hours = runTime.getHours();
@@ -13,7 +13,7 @@ public class KilometerTime{
 
         double totalMinutes = hours * 60 + minutes + seconds / 60.0;
 
-        double totalDistance = addDistance.getTotalDistance();
+        double totalDistance = distance.getTotalDistance();
 
         if (totalMinutes < 0 || totalDistance <= 0) {
             return -1;
