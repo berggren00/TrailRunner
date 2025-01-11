@@ -1,9 +1,8 @@
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.time.LocalDate;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -81,7 +80,23 @@ public class TestRunDetails {
         assertTrue(result.contains("Distance: 10.0 km"));
         assertTrue(result.contains("Time: 1h 0m 0s"));
         assertTrue(result.contains("Average Speed: 10.0 km/h"));
-
     }
+
+    @Test
+    void testClearRunDetails() {
+        RunDetails.addRundetails("run1", "Details for run 1");
+        RunDetails.clearRunDetails();
+        assertEquals("No details found for ID: run1", RunDetails.getRunDetails("run1"));
+    }
+
+    @Test
+    void testSetDate(){
+        LocalDate newDate = LocalDate.of(2025, 01, 11);
+
+        todaysDate.setDate(newDate);
+
+        assertEquals(newDate, todaysDate.getDate());
+    }
+
 
 }
