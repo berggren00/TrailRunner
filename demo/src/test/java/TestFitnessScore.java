@@ -51,9 +51,41 @@ public class TestFitnessScore {
     }
 
     @Test
+    void testAverageSpeedCalcNull(){
+        distance.addDistance(10.0);
+        averageSpeedCalc = null;
+        runTime = new RunTime(1, 30, 0);
+        assertThrows(IllegalArgumentException.class, () -> {
+            FitnessScore.calculateFitnessScore(0, distance, averageSpeedCalc, runTime, 0);
+        });
+    }
+
+    @Test
+    void testRunTimeNull() {
+        distance.addDistance(10.0);
+        averageSpeedCalc.calculateAverageSpeed();
+        runTime = null;
+        assertThrows(IllegalArgumentException.class, () -> {
+            FitnessScore.calculateFitnessScore(0, distance, averageSpeedCalc, runTime, 0);
+        });
+    }
+
+
+    @Test
+    void testAddDistanceNull(){
+        distance = null;
+        averageSpeedCalc.calculateAverageSpeed();
+        runTime = new RunTime(1, 30, 0);
+        assertThrows(IllegalArgumentException.class, () -> {
+            FitnessScore.calculateFitnessScore(0, distance, averageSpeedCalc, runTime, 0);
+        });
+
+    }
+
+    @Test
     void testNullInputs() {
         assertThrows(IllegalArgumentException.class, () -> {
-            FitnessScore.calculateFitnessScore(30, null, null, null, 2);
+            FitnessScore.calculateFitnessScore(0, null, null, null, 0);
         });
     }
 }

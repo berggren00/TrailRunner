@@ -41,7 +41,7 @@ public class RunDetails {
         try {
             detailsBuilder.append("Fitness Score: ").append(FitnessScore.calculateFitnessScore(0, distance, averageSpeedCalc, runTime, 0)).append("\n");
         } catch (IllegalArgumentException e) {
-            detailsBuilder.append("Fitness Score: Error calculating");
+            detailsBuilder.append("Fitness Score: Error calculating\n");
         }
         addRunDetails(id, detailsBuilder.toString());
     }

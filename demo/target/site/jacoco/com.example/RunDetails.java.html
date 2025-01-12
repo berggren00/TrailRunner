@@ -28,21 +28,21 @@ import java.util.HashMap;
 <span class="fc" id="L28">        detailsBuilder.append(&quot;Time: &quot;).append(runTime.getHours()).append(&quot;h &quot;).append(runTime.getMinutes()).append(&quot;m &quot;).append(runTime.getSeconds()).append(&quot;s\n&quot;);</span>
         try {
 <span class="fc" id="L30">            detailsBuilder.append(&quot;Average Speed: &quot;).append(averageSpeedCalc.calculateAverageSpeed()).append(&quot; km/h\n&quot;);</span>
-<span class="nc" id="L31">        } catch (IllegalArgumentException e) {</span>
+<span class="pc" id="L31">        } catch (IllegalArgumentException e) {</span>
 <span class="nc" id="L32">            detailsBuilder.append(&quot;Average Speed: Error calculating\n&quot;);</span>
-<span class="fc" id="L33">        }</span>
+        }
 
         try {
 <span class="fc" id="L36">            detailsBuilder.append(&quot;Kilometer Time: &quot;).append(KilometerTime.calculateKilometerTime(runTime, distance)).append(&quot; m/km\n&quot;);</span>
-<span class="nc" id="L37">        } catch (IllegalArgumentException e) {</span>
+<span class="pc" id="L37">        } catch (IllegalArgumentException e) {</span>
 <span class="nc" id="L38">            detailsBuilder.append(&quot;Kilometer Time: Error calculating\n&quot;);</span>
-<span class="fc" id="L39">        }</span>
+        }
 
         try {
 <span class="fc" id="L42">            detailsBuilder.append(&quot;Fitness Score: &quot;).append(FitnessScore.calculateFitnessScore(0, distance, averageSpeedCalc, runTime, 0)).append(&quot;\n&quot;);</span>
-<span class="nc" id="L43">        } catch (IllegalArgumentException e) {</span>
+<span class="pc" id="L43">        } catch (IllegalArgumentException e) {</span>
 <span class="nc" id="L44">            detailsBuilder.append(&quot;Fitness Score: Error calculating&quot;);</span>
-<span class="fc" id="L45">        }</span>
+        }
 <span class="fc" id="L46">        addRunDetails(id, detailsBuilder.toString());</span>
 <span class="fc" id="L47">    }</span>
     public static void clearRunDetails(){

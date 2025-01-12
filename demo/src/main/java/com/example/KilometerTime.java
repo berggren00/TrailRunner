@@ -4,9 +4,7 @@ package com.example;
 public class KilometerTime{
 
     public static double calculateKilometerTime(RunTime runTime, AddDistance distance) {
-        if (runTime == null || distance == null) {
-            return -1;
-        }
+
         int hours = runTime.getHours();
         int minutes = runTime.getMinutes();
         int seconds = runTime.getSeconds();
