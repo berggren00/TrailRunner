@@ -7,6 +7,7 @@ public class KilometerTime{
         if (runTime == null || distance == null) {
             throw new IllegalArgumentException("Input can not be null");
         }
+
         int hours = runTime.getHours();
         int minutes = runTime.getMinutes();
         int seconds = runTime.getSeconds();

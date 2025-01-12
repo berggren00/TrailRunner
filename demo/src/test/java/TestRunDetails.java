@@ -20,11 +20,12 @@ public class TestRunDetails {
     private RunTime runTime;
     private AverageSpeed averageSpeedCalc;
     private TodaysDate todaysDate;
+    private RunDetails runDetails;
 
     @BeforeEach
     void setup() {
-        RunDetails.clearRunDetails();
-        RunDetails.addRunDetails("test", "Test details");
+        runDetails.clearRunDetails();
+        runDetails.addRunDetails("test", "Test details");
         distance = new AddDistance();
         runTime = new RunTime(0, 0, 0);
         averageSpeedCalc = new AverageSpeed(distance, runTime);
@@ -35,9 +36,9 @@ public class TestRunDetails {
     void testAddRunDetails(){
         String id = GenerateID.generateNewID();
         String details = "Distance: 5km, Time: 25 min, Speed: 12 km/h";
-        RunDetails.addRunDetails(id, details);
+        runDetails.addRunDetails(id, details);
 
-        assertEquals(details, RunDetails.getRunDetails(id), "Run details should match the added details");
+        assertEquals(details, runDetails.getRunDetails(id), "Run details should match the added details");
     }
 
 
@@ -46,9 +47,9 @@ public class TestRunDetails {
         String id = GenerateID.generateNewID();
         String details = "Sample run details";
 
-        RunDetails.addRunDetails(id, details);
+        runDetails.addRunDetails(id, details);
 
-        RunDetails.printRunDetails(id);
+        runDetails.printRunDetails(id);
     }
 
     @Test
@@ -56,7 +57,7 @@ public class TestRunDetails {
         String id = "test";
         String expectedDetails = "Test details";
 
-        assertEquals(expectedDetails, RunDetails.getRunDetails(id), "Run details should be retrieved correctly for existing ID");
+        assertEquals(expectedDetails, runDetails.getRunDetails(id), "Run details should be retrieved correctly for existing ID");
     }
 
     @Test
@@ -64,7 +65,7 @@ public class TestRunDetails {
         String id = "nonExistingID";
         String expectedMessage = "No details found for ID: nonExistingID";
 
-        assertEquals(expectedMessage, RunDetails.getRunDetails(id), "Should return message for non-existing ID");
+        assertEquals(expectedMessage, runDetails.getRunDetails(id), "Should return message for non-existing ID");
     }
 
     @Test
@@ -80,10 +81,10 @@ public class TestRunDetails {
         FitnessScore.calculateFitnessScore(0, distance, averageSpeedCalc, runTime, 0);
 
 
-        RunDetails.interigateRunDetails(id, distance, runTime, averageSpeedCalc, null, null, todaysDate);
+        runDetails.interigateRunDetails(id, distance, runTime, averageSpeedCalc, null, null, todaysDate);
         
         
-        String result = RunDetails.getRunDetails(id);
+        String result = runDetails.getRunDetails(id);
         assertTrue(result.contains("Date: 2025-01-11"));
         assertTrue(result.contains("Distance: 10.0 km"));
         assertTrue(result.contains("Time: 1h 0m 0s"));
@@ -105,17 +106,17 @@ public class TestRunDetails {
 
         FitnessScore fitnessScore = new FitnessScore();
 
-        RunDetails.interigateRunDetails(id, distance, runTime, averageSpeedCalc, kilometerTime, fitnessScore, todaysDate);
+        runDetails.interigateRunDetails(id, distance, runTime, averageSpeedCalc, kilometerTime, fitnessScore, todaysDate);
 
-        String result = RunDetails.getRunDetails(id);
+        String result = runDetails.getRunDetails(id);
         System.out.println("Generated Result: \n");
         assertTrue(result.contains("Fitness Score: 73.42"));
     }
 
     @Test
     void testClearRunDetails() {
-        RunDetails.addRunDetails("run1", "Details for run 1");
-        RunDetails.clearRunDetails();
+        runDetails.addRunDetails("run1", "Details for run 1");
+        runDetails.clearRunDetails();
         assertEquals("No details found for ID: run1", RunDetails.getRunDetails("run1"));
     }
 
@@ -128,5 +129,42 @@ public class TestRunDetails {
         assertEquals(newDate, todaysDate.getDate());
     }
 
+    @Test
+    void testAverageSpeedCalcErrorHandling(){
+        distance.addDistance(10.0);
+        runTime = new RunTime(0, 0, 0);
+        AverageSpeed averageSpeedCalc = new AverageSpeed(distance, runTime);
 
+        runDetails.interigateRunDetails("run1", distance, runTime, averageSpeedCalc, new KilometerTime(), new FitnessScore(), new TodaysDate());
+        String details = runDetails.getRunDetails("run1");
+        assertTrue(details.contains("Average Speed: Error calculating"));
+    }
+
+    @Test
+    public void testKilometerTimeErrorHandling() {
+        distance.addDistance(0);
+        RunTime runTime = new RunTime(0, 0, 0);
+        KilometerTime kilometerTime = new KilometerTime();
+        
+
+        runDetails.interigateRunDetails("run2", distance, runTime, new AverageSpeed(distance, runTime), kilometerTime, new FitnessScore(), new TodaysDate());
+
+        String details = runDetails.getRunDetails("run2");
+        assertEquals(1, details);
+        
+        
+    }
+    
+
+    @Test
+    void testFitnessScoreErrorHandling(){
+        distance.addDistance(10.0);
+        runTime = new RunTime(0, 0, 0);
+        FitnessScore fitnessScore = new FitnessScore();
+
+        runDetails.interigateRunDetails("run3", distance, runTime, new AverageSpeed(distance, runTime), new KilometerTime(), fitnessScore, new TodaysDate());
+
+        String details = runDetails.getRunDetails("run3");
+        assertTrue(details.contains("Fitness Score: Error calculating"));
+    }
 }
