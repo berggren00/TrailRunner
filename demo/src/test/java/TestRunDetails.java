@@ -77,8 +77,7 @@ public class TestRunDetails {
         averageSpeedCalc.calculateAverageSpeed();
         todaysDate = new TodaysDate(LocalDate.of(2025, 1, 11));
         KilometerTime.calculateKilometerTime(runTime, distance);
-        FitnessScore fitnessScore = new FitnessScore();
-        fitnessScore.calculateFitnessScore(0, distance, averageSpeedCalc, runTime, 0);
+        FitnessScore.calculateFitnessScore(0, distance, averageSpeedCalc, runTime, 0);
 
 
         RunDetails.interigateRunDetails(id, distance, runTime, averageSpeedCalc, null, null, todaysDate);

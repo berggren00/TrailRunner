@@ -45,7 +45,6 @@ public class TestFitnessScore {
 
         double currentScore = 40.0;
         int daysSinceLastRun = 5;
-
         assertThrows(IllegalArgumentException.class, () -> {
             FitnessScore.calculateFitnessScore(currentScore, distance, averageSpeedCalc, runTime, daysSinceLastRun);
         });

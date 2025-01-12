@@ -9,13 +9,12 @@ import com.example.RunTime;
 public class TestKilometerTime {
     private AddDistance distance;
     private RunTime runTime;
-    private KilometerTime kilometerTime;
-
+    
     @BeforeEach
     void setup(){
         distance = new AddDistance();
         runTime = new RunTime(1, 30, 0);
-        kilometerTime = new KilometerTime();
+        new KilometerTime();
     }   
 
     @Test
