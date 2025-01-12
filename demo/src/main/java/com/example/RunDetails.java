@@ -6,7 +6,7 @@ public class RunDetails {
     private static final HashMap<String, String> runDetails = new HashMap<>();
     
     
-    public static void addRundetails(String id, String details) {
+    public static void addRunDetails(String id, String details) {
         runDetails.put(id, details);
     }
 
@@ -33,7 +33,7 @@ public class RunDetails {
         }
 
         try {
-            detailsBuilder.append("Kilometer time: ").append(KilometerTime.calculateKilometerTime(runTime, distance)).append("m/kmn");
+            detailsBuilder.append("Kilometer Time: ").append(KilometerTime.calculateKilometerTime(runTime, distance)).append(" m/km\n");
         } catch (IllegalArgumentException e) {
             detailsBuilder.append("Kilometer Time: Error calculating\n");
         }
@@ -43,9 +43,7 @@ public class RunDetails {
         } catch (IllegalArgumentException e) {
             detailsBuilder.append("Fitness Score: Error calculating");
         }
-
-
-        addRundetails(id, detailsBuilder.toString());
+        addRunDetails(id, detailsBuilder.toString());
     }
     public static void clearRunDetails(){
         runDetails.clear();

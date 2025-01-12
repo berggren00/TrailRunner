@@ -23,6 +23,7 @@ public class TestFitnessScore {
 
     }
 
+
     @Test
     void testValidFitnessScore() {
         distance.addDistance(15);
