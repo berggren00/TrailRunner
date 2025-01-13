@@ -34,7 +34,7 @@ public class TestAverageSpeed {
         distance.addDistance(0.0);
         double result = avgSpeed.calculateAverageSpeed();
 
-        assertEquals(0.0, 0.0);
+        assertEquals(0.0, result);
     }
 
     @Test
