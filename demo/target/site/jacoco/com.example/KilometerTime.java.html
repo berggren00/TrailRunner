@@ -4,19 +4,22 @@
 <span class="fc" id="L4">public class KilometerTime{</span>
 
     public static double calculateKilometerTime(RunTime runTime, AddDistance distance) {
-
-<span class="fc" id="L8">        int hours = runTime.getHours();</span>
-<span class="fc" id="L9">        int minutes = runTime.getMinutes();</span>
-<span class="fc" id="L10">        int seconds = runTime.getSeconds();</span>
-
-<span class="fc" id="L12">        double totalMinutes = hours * 60 + minutes + seconds / 60.0;</span>
-
-<span class="fc" id="L14">        double totalDistance = distance.getTotalDistance();</span>
-
-<span class="fc bfc" id="L16" title="All 4 branches covered.">        if (totalMinutes &lt; 0 || totalDistance &lt;= 0) {</span>
-<span class="fc" id="L17">            return -1;</span>
+<span class="pc bpc" id="L7" title="2 of 4 branches missed.">        if (runTime == null || distance == null) {</span>
+<span class="nc" id="L8">            throw new IllegalArgumentException(&quot;Input can not be null&quot;);</span>
         }
-<span class="fc" id="L19">        return totalMinutes/totalDistance;</span>
+
+<span class="fc" id="L11">        int hours = runTime.getHours();</span>
+<span class="fc" id="L12">        int minutes = runTime.getMinutes();</span>
+<span class="fc" id="L13">        int seconds = runTime.getSeconds();</span>
+
+<span class="fc" id="L15">        double totalMinutes = hours * 60 + minutes + seconds / 60.0;</span>
+
+<span class="fc" id="L17">        double totalDistance = distance.getTotalDistance();</span>
+
+<span class="fc bfc" id="L19" title="All 4 branches covered.">        if (totalMinutes &lt; 0 || totalDistance &lt;= 0) {</span>
+<span class="fc" id="L20">            throw new IllegalArgumentException(&quot;Input can not be negative&quot;);</span>
+        }
+<span class="fc" id="L22">        return totalMinutes/totalDistance;</span>
     }
 
 }
