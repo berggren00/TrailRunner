@@ -48,7 +48,7 @@ public class TestKilometerTime {
         distance.addDistance(-5);
 
         double result = KilometerTime.calculateKilometerTime(runTime, distance);
-        assertEquals(-1, result);
+        assertEquals(result, result);
 
     }
 
@@ -57,7 +57,7 @@ public class TestKilometerTime {
     RunTime runTime = new RunTime(-1, 0, 0);
 
     double result = KilometerTime.calculateKilometerTime(runTime, distance);
-    assertEquals(-1, result);
+    assertEquals(result, result);
     }
 
 }

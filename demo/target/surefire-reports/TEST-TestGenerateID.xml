@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestGenerateID" time="0.06" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestGenerateID" time="0.075" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-22\bin"/>
-    <property name="sun.java.command" value="C:\Users\AxelsDator\AppData\Local\Temp\surefire3474895226377237835\surefirebooter-20250112215155942_3.jar C:\Users\AxelsDator\AppData\Local\Temp\surefire3474895226377237835 2025-01-12T21-51-55_836-jvmRun1 surefire-20250112215155942_1tmp surefire_0-20250112215155942_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\AxelsDator\AppData\Local\Temp\surefire5092131497748707118\surefirebooter-20250113102600110_3.jar C:\Users\AxelsDator\AppData\Local\Temp\surefire5092131497748707118 2025-01-13T10-25-59_989-jvmRun1 surefire-20250113102600110_1tmp surefire_0-20250113102600110_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="c:\Users\AxelsDator\OneDrive - IT-Högskolan Sverige AB\Adventure_Game_PC\TrailRunner\demo\target\test-classes;c:\Users\AxelsDator\OneDrive - IT-Högskolan Sverige AB\Adventure_Game_PC\TrailRunner\demo\target\classes;C:\Users\AxelsDator\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.1\junit-jupiter-engine-5.9.1.jar;C:\Users\AxelsDator\.m2\repository\org\junit\platform\junit-platform-engine\1.9.1\junit-platform-engine-1.9.1.jar;C:\Users\AxelsDator\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\AxelsDator\.m2\repository\org\junit\platform\junit-platform-commons\1.9.1\junit-platform-commons-1.9.1.jar;C:\Users\AxelsDator\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.1\junit-jupiter-api-5.9.1.jar;C:\Users\AxelsDator\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\AxelsDator\.m2\repository\org\mockito\mockito-core\5.8.0\mockito-core-5.8.0.jar;C:\Users\AxelsDator\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\AxelsDator\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\AxelsDator\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\AxelsDator\AppData\Local\Temp\surefire3474895226377237835\surefirebooter-20250112215155942_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\AxelsDator\AppData\Local\Temp\surefire5092131497748707118\surefirebooter-20250113102600110_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="22.0.2+9-70"/>
@@ -60,7 +60,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="testNotDuplicateIDsinLargeSet" classname="TestGenerateID" time="0.055"/>
+  <testcase name="testNotDuplicateIDsinLargeSet" classname="TestGenerateID" time="0.069"/>
   <testcase name="testGenerateIDIsUnique" classname="TestGenerateID" time="0.002"/>
-  <testcase name="testGeneratedIDIsNotNull" classname="TestGenerateID" time="0.001"/>
+  <testcase name="testGeneratedIDIsNotNull" classname="TestGenerateID" time="0.002"/>
 </testsuite>

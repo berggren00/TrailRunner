@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestRunDetails" time="0.048" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestTotalDistanceInKM" time="0.004" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -60,23 +60,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="testIntegrateRunDetailsWithCustomFitnessScore" classname="TestRunDetails" time="0.019">
-    <system-out><![CDATA[Generated Result: 
-
-]]></system-out>
-  </testcase>
-  <testcase name="testClearRunDetails" classname="TestRunDetails" time="0.001"/>
-  <testcase name="testPrintRunDetails" classname="TestRunDetails" time="0.001">
-    <system-out><![CDATA[Run ID: 57d072
-Details: Sample run details
-]]></system-out>
-  </testcase>
-  <testcase name="testGetRunDetailsNonExistingID" classname="TestRunDetails" time="0.001"/>
-  <testcase name="testInterigateRunDetails" classname="TestRunDetails" time="0.0"/>
-  <testcase name="testKilometerTimeErrorHandling" classname="TestRunDetails" time="0.002"/>
-  <testcase name="testSetDate" classname="TestRunDetails" time="0.002"/>
-  <testcase name="testAddRunDetails" classname="TestRunDetails" time="0.001"/>
-  <testcase name="testAverageSpeedCalcErrorHandling" classname="TestRunDetails" time="0.002"/>
-  <testcase name="testGetRunDetailsExistingID" classname="TestRunDetails" time="0.0"/>
-  <testcase name="testFitnessScoreErrorHandling" classname="TestRunDetails" time="0.0"/>
+  <testcase name="newRun_ZeroDistance" classname="TestTotalDistanceInKM" time="0.0"/>
+  <testcase name="addingRun_ShouldIncreaseTotalRuns" classname="TestTotalDistanceInKM" time="0.0"/>
+  <testcase name="addingRun_ShouldIncreaseDistance" classname="TestTotalDistanceInKM" time="0.0"/>
+  <testcase name="newRun_ZeroRuns" classname="TestTotalDistanceInKM" time="0.0"/>
 </testsuite>
