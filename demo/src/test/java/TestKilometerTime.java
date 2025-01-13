@@ -1,6 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -65,4 +64,24 @@ public class TestKilometerTime {
 
     }
 
+    @Test
+    void testNullTime() {
+        distance.addDistance(0);
+        RunTime runTime = null;
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> KilometerTime.calculateKilometerTime(runTime, distance));
+
+        assertEquals("Input can not be null", exception.getMessage());
+    }
+
+    @Test
+    void testNullDistance() {
+        distance = null;
+        RunTime runTime = new RunTime(0, 0, 0);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> KilometerTime.calculateKilometerTime(runTime, distance));
+
+        assertEquals("Input can not be null", exception.getMessage());
+
+    }
 }
