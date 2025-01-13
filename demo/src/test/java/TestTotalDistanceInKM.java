@@ -28,27 +28,32 @@ public class TestTotalDistanceInKM {
     }
 
     @Test
-    void addingRun_ShouldIncreaseDistance() {
+    void addingSingleRun() {
         distanceTracker.addRun(5.0);
-        double firstTotal = distanceTracker.getTotalDistance();
+        assertEquals(5.0, distanceTracker.getTotalDistance(), "Total distance should match single added run");
+    }
 
+    @Test
+    void addingMultipleRuns() {
+        distanceTracker.addRun(5.0);
         distanceTracker.addRun(3.0);
-        double secondTotal = distanceTracker.getTotalDistance();
+        
+        assertEquals(8.0, distanceTracker.getTotalDistance(), "Total distance should match added run - 8");
+    }
 
-        assertEquals(5.0, firstTotal, "Total distance should match added run - 5");
-        assertEquals(8.0, secondTotal, "Total distance should match added run - 8");
+    @Test
+    void addingFirstRun() {
+        distanceTracker.addRun(2.0);
+        
+        assertEquals(1, distanceTracker.getTotalRuns(), "Total runs should match added run - 1");
     }
 
     @Test
     void addingRun_ShouldIncreaseTotalRuns() {
         distanceTracker.addRun(2.0);
-        int firstCount = distanceTracker.getTotalRuns();
-
         distanceTracker.addRun(22.0);
-        int secondCount = distanceTracker.getTotalRuns();
-
-        assertEquals(1, firstCount, "Total runs should match added run - 1");
-        assertEquals(2, secondCount, "Total runs should match added run - 2");
+        
+        assertEquals(2, distanceTracker.getTotalRuns(), "Total runs should match added run - 2");
     }
 
 }

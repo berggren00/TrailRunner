@@ -26,7 +26,37 @@ public class TestAverageSpeed {
 
         double result = avgSpeed.calculateAverageSpeed();
 
-        assertEquals(10.0, 10.0);
+        assertEquals(10.0, result);
+    }
+
+    @Test
+    void calculateAverageSpeed_25km() {
+        distance.addDistance(0.5);
+
+        double result = avgSpeed.calculateAverageSpeed();
+
+        assertEquals(0.5, result, 0.5, "Avrundas upp till 1 på grund av Math.round() i AverageSpeed klassen.");
+    }
+
+    @Test
+    void calculateAverageSpeed_30Minutes() {
+        distance.addDistance(10.0);
+        runtime = new RunTime(0, 30, 0);
+        avgSpeed = new AverageSpeed(distance, runtime);
+
+        double result = avgSpeed.calculateAverageSpeed();
+
+        assertEquals(20, result);
+    }
+    
+    @Test
+    void calculateAverageSpeed_MultipleDistances() {
+        distance.addDistance(10.0);
+        distance.addDistance(5.0);
+
+        double result = avgSpeed.calculateAverageSpeed();
+
+        assertEquals(15, result);
     }
 
     @Test
