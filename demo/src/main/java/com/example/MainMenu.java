@@ -86,15 +86,15 @@ public class MainMenu {
 
     private static void showRunDetails() {
         AddDistance distance = new AddDistance();
-        distance.addDistance(25.0); // Add a certain distance
+        distance.addDistance(25.0); 
         RunTime runtime = new RunTime(1, 29, 48);
         AverageSpeed averageSpeed = new AverageSpeed(distance, runtime);
-        double currentScore = 50.0; // Example current score
-        int daysSinceLastRun = 5; // Example days since last run
+        double currentScore = 50.0; 
+        int daysSinceLastRun = 5; 
         double fitnessScore = FitnessScore.calculateFitnessScore(currentScore, distance, averageSpeed, runtime, daysSinceLastRun);
-        String todaysDate = "2023-10-10"; // Example today's date
+        String todaysDate = "2023-10-10"; 
 
-        String runId = GenerateID.generateNewID(); // Generate a new run ID
+        String runId = GenerateID.generateNewID(); 
         StringBuilder detailsBuilder = new StringBuilder();
 
         detailsBuilder.append("Run ID: ").append(runId).append("\n");
