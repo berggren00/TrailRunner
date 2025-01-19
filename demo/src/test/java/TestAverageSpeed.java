@@ -21,12 +21,44 @@ public class TestAverageSpeed {
     @Test
     void calculateAverageSpeed_10km() {
         distance.addDistance(10.0);
-        runtime = new RunTime(1, 0, 0);
         avgSpeed = new AverageSpeed(distance, runtime);
 
         double result = avgSpeed.calculateAverageSpeed();
 
-        assertEquals(10.0, 10.0);
+        assertEquals(10.0, result);
+    }
+
+    @Test
+    void calculateAverageSpeed_25km() {
+        distance.addDistance(15.0);
+        runtime = new RunTime(1, 30, 0);
+        avgSpeed = new AverageSpeed(distance, runtime);
+
+        double result = avgSpeed.calculateAverageSpeed();
+
+        assertEquals(10.0, result);
+    }
+
+    @Test
+    void calculateAverageSpeed_10kmIn30Minutes() {
+        distance.addDistance(10.0);
+        runtime = new RunTime(0, 30, 0);
+        avgSpeed = new AverageSpeed(distance, runtime);
+
+        double result = avgSpeed.calculateAverageSpeed();
+
+        assertEquals(20.0, result);
+    }
+
+    @Test
+    void calculateAverageSpeed_MultipleDistances() {
+        distance.addDistance(10.0);
+        distance.addDistance(5.0);
+        avgSpeed = new AverageSpeed(distance, runtime);
+
+        double result = avgSpeed.calculateAverageSpeed();
+
+        assertEquals(15.0, result);
     }
 
     @Test
@@ -42,5 +74,9 @@ public class TestAverageSpeed {
         distance.addDistance(10.0);
         runtime = new RunTime(0, 0, 0);
         avgSpeed = new AverageSpeed(distance, runtime);
+
+        double result = avgSpeed.calculateAverageSpeed();
+
+        assertEquals(0.0, result);
     }
 }
