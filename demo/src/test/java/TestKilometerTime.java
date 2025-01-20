@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -29,8 +30,8 @@ public class TestKilometerTime {
     @Test
     void testZeroDistance(){
         RunTime runTime = new RunTime(1, 0, 0);
-        double result = KilometerTime.calculateKilometerTime(runTime, distance);
-        assertEquals(-1, result);
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> KilometerTime.calculateKilometerTime(runTime, distance));
+        assertEquals("Input can not be negative", exception.getMessage());
     }
 
     @Test
@@ -44,20 +45,43 @@ public class TestKilometerTime {
 
     @Test
     void testNegativeDistance() {
-        RunTime runTime = new RunTime(1, 0, 0);
+        RunTime runTime = new RunTime(0, 30, 0);
         distance.addDistance(-5);
 
-        double result = KilometerTime.calculateKilometerTime(runTime, distance);
-        assertEquals(-1, result);
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> KilometerTime.calculateKilometerTime(runTime, distance));
 
+        assertEquals("Input can not be negative", exception.getMessage());
     }
 
     @Test
     void testNegativeTime() {
+    distance.addDistance(10);
     RunTime runTime = new RunTime(-1, 0, 0);
 
-    double result = KilometerTime.calculateKilometerTime(runTime, distance);
-    assertEquals(-1, result);
+    IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> KilometerTime.calculateKilometerTime(runTime, distance));
+    
+    assertEquals("Input can not be negative", exception.getMessage());
+
     }
 
+    @Test
+    void testNullTime() {
+        distance.addDistance(0);
+        RunTime runTime = null;
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> KilometerTime.calculateKilometerTime(runTime, distance));
+
+        assertEquals("Input can not be null", exception.getMessage());
+    }
+
+    @Test
+    void testNullDistance() {
+        distance = null;
+        RunTime runTime = new RunTime(0, 0, 0);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> KilometerTime.calculateKilometerTime(runTime, distance));
+
+        assertEquals("Input can not be null", exception.getMessage());
+
+    }
 }

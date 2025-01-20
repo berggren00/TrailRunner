@@ -150,7 +150,7 @@ public class TestRunDetails {
         runDetails.interigateRunDetails("run2", distance, runTime, new AverageSpeed(distance, runTime), kilometerTime, new FitnessScore(), new TodaysDate());
 
         String details = runDetails.getRunDetails("run2");
-        assertEquals(1, details);
+        assertTrue(details.contains("Kilometer Time: Error calculating"));
         
         
     }

@@ -11,6 +11,10 @@ public class RunTime {
         this.seconds = seconds;
     }
 
+    public RunTime() {
+        this(1, 29 , 48);
+    }
+
     public int getHours() {
         return hours;
     }
@@ -21,5 +25,9 @@ public class RunTime {
 
     public int getSeconds() {
         return seconds;
+    }
+
+    public String getFormattedRunTime() {
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
     }
 }
